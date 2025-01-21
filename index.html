@@ -1,81 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <style>
-    /* styles.css */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(120deg, #f6d365, #fda085);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
-}
-
-.container {
-    text-align: center;
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 400px;
-    animation: fadeIn 1s ease-in-out;
-}
-
-.card h1 {
-    font-size: 2.5rem;
-    color: #ff4500;
-    margin-bottom: 20px;
-}
-
-.card p {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 20px;
-}
-
-button {
-    background: #ff4500;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-}
-
-button:hover {
-    background: #e63e00;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-  </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funny Landing Page</title>
+    <title>Dangerous Theme</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <div class="card">
             <h1>😂 Gotcha! 😂</h1>
-            <p>Relax, your ID  hacked!  😉</p>
-            <button onclick="alert('See? Data sending to the user....')">Click Me Again!</button>
+            <p>Relax, your ID hacked! 😉</p>
+            <button onclick="showWarning()">To stop/click!</button>
         </div>
     </div>
+
+    <!-- Alert Popup -->
+    <div class="alert" id="alertBox">
+        <p>You made a mistake again by clicking on this! Don't worry, your data is currently being sent to another user... 🫥</p>
+        <button class="close-btn" onclick="closeTab()">Close</button>
+    </div>
+
+    <script>
+        // Show the alert box
+        function showWarning() {
+            const alertBox = document.getElementById("alertBox");
+            alertBox.style.display = "flex"; // Show the alert box
+            setTimeout(() => {
+                alertBox.style.opacity = "1"; // Fade in
+            }, 10); // Slight delay for smooth animation
+        }
+
+        // Close the tab or browser
+        function closeTab() {
+            // Attempt to close the tab
+            window.close();
+
+            // Fallback message if the browser does not allow window.close()
+            alert("Unable to close the tab automatically. Please close it manually.");
+        }
+    </script>
 </body>
 </html>
