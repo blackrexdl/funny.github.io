@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dangerous Theme</title>
+    <title>Id hacked</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -19,10 +19,10 @@
     <div class="alert" id="alertBox">
         <p>You made a mistake again by clicking on this! Don't worry, your data is currently being sent to another user... 🫥</p>
         <button class="close-btn" onclick="closeTab()">Close</button>
+        <p id="manualCloseMessage" style="display:none;">To exit, please manually close this tab or go back to your home screen.</p>
     </div>
 
     <script>
-        // Show the alert box
         function showWarning() {
             const alertBox = document.getElementById("alertBox");
             alertBox.style.display = "flex"; // Show the alert box
@@ -31,13 +31,12 @@
             }, 10); // Slight delay for smooth animation
         }
 
-        // Close the tab or browser
         function closeTab() {
-            // Attempt to close the tab
+            // Attempt to close the tab (it will likely be blocked)
             window.close();
 
-            // Fallback message if the browser does not allow window.close()
-            alert("Unable to close the tab automatically. Please close it manually.");
+            // If window.close() is blocked (common in mobile browsers), show an exit message
+            document.getElementById("manualCloseMessage").style.display = "block"; // Display manual close instructions
         }
     </script>
 </body>
